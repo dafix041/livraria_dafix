@@ -1,16 +1,21 @@
 package livro;
 
-public abstract class Livro {
+import java.io.Serializable;
+
+public abstract class Livro implements Serializable {
 
     protected String titulo, autor, genero;
-    protected int anoLancamento;
+    protected int anoLancamento, codigoLivro, estoqueLivro;
     protected boolean emprestado;
 
-    public Livro(String titulo, String autor, String genero, int anoLancamento, boolean emprestado) {
+    public Livro(String titulo, String autor, String genero, int anoLancamento, int codigoLivro, int estoqueLivro,
+            boolean emprestado) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.anoLancamento = anoLancamento;
+        this.codigoLivro = codigoLivro;
+        this.estoqueLivro = estoqueLivro;
         this.emprestado = emprestado;
     }
 
@@ -54,10 +59,27 @@ public abstract class Livro {
         this.emprestado = emprestado;
     }
 
+    public int getCodigoLivro() {
+        return codigoLivro;
+    }
+
+    public void setCodigoLivro(int codigoLivro) {
+        this.codigoLivro = codigoLivro;
+    }
+
+    public int getEstoqueLivro() {
+        return estoqueLivro;
+    }
+
+    public void setEstoqueLivro(int estoqueLivro) {
+        this.estoqueLivro = estoqueLivro;
+    }
+
     @Override
     public String toString() {
         return "Livro [titulo=" + titulo + ", autor=" + autor + ", genero=" + genero + ", anoLancamento="
-                + anoLancamento + ", emprestado=" + emprestado + "]";
+                + anoLancamento + ", codigoLivro=" + codigoLivro + ", estoqueLivro=" + estoqueLivro + ", emprestado="
+                + emprestado + "]";
     }
 
 }
